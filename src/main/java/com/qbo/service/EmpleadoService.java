@@ -22,5 +22,10 @@ public class EmpleadoService   {
 		respuesta.put("mensaje", "Elemento registrado correctamente");
 		return respuesta;
 	}
+	
+	public Empleado autenticarEmpleado(String usuario, String password) {
+		return empleadoRepository.autenticarEmpleado(usuario, password);
+	}
+	
 
 }

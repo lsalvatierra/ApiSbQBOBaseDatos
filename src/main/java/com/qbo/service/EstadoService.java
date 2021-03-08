@@ -29,8 +29,7 @@ public class EstadoService implements BaseService<Estado> {
 			return Optional.empty();
 		}else {
 			return entityOptional;				
-		}
-		
+		}		
 	}
 
 	@Override
@@ -40,22 +39,10 @@ public class EstadoService implements BaseService<Estado> {
 	}
 
 	@Override
-	public Estado update(Long id, Estado entity) {
-		Optional<Estado> entityOptional = estadoRepository.findById(id);
-		Estado entityUpdate = entityOptional.get();
-		entityUpdate = estadoRepository.save(entity);
-		return entityUpdate;
-	}
-
-	@Override
 	public HashMap<String, String> deleteById(Long id) {
 		HashMap<String, String> respuesta = new HashMap<String, String>();
 		estadoRepository.deleteById(id);
 		respuesta.put("mensaje", "Elemento eliminado correctamente");
 		return respuesta;
-	}
-	
-	
-
-	
+	}	
 }

@@ -23,5 +23,11 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
             @Param("apellido")String apellido
             );
 	
+	@Query(value = "{call sp_AutenticarEmpleado(:usuario, :password)}", 
+			nativeQuery = true)
+	public Empleado autenticarEmpleado(
+			@Param("usuario")String usuario,
+			@Param("password")String password);
+	
     
 }
